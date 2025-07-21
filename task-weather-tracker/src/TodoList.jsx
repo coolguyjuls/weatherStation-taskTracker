@@ -5,34 +5,33 @@ import { useState } from "react";
 function TodoList(){
 
     const [tasks, setTasks] = useState([]);
-    const [input, setInput] = useState('');
+    const [newTask, setNewTask] = useState('');
 
 
 
     function handleSubmit(event){
         event.preventDefault();
-        console.log("hello");
 
-        if (input.trim() === "") return;
-        console.log(input)
+        if (newTask.trim() === "") return;
 
-        setTasks(prevTasks => [...prevTasks, input]);
-        setInput('');
+        setTasks(prevTasks => [...prevTasks, newTask]);
+        setNewTask('');
         
     }
 
 
-function handleDelete(e){
-    let currentTask = e.target.index;
-    task.splice(currentTask)
-}
+    function handleDelete(index){
+        const updatedTasks = tasks.filter((_,i) => i !== index);
+        setTasks(updatedTasks)
+        
+    }
 
     console.log(tasks)
     return(
         <div className="task-container">
             <h2>To-Do List</h2>
             <form className="input-form"  onSubmit={handleSubmit}>
-                <input className="input-text" type="text" placeholder="enter task here" value={input} onChange={e => setInput(e.target.value)}></input>
+                <input className="input-text" type="text" placeholder="enter task here" value={newTask} onChange={e => setNewTask(e.target.value)}></input>
                 <button type="submit" className="input-button">+</button>
             </form>
 
@@ -40,8 +39,9 @@ function handleDelete(e){
                 <div className="task-card" key={index}>
                     <p>{task}</p>
                     <div className="task-button-container">
-                        <button onClick={handleDelete} >Delete</button>
+                        <button onClick={()=> handleDelete(index)} >Delete</button>
                         <button>Edit</button>
+                        <p>this index is {index}</p>
                     </div>
                 </div>)}
         </div>
