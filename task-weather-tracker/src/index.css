@@ -1,0 +1,58 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  /* font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
+}
+body{
+  margin: 0;
+  /* display: flex; */
+}
+.body{
+  border: 1px solid white;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 20px 20px;
+  gap: 20px;
+}
+
+
+.weather-container{
+  background-color: green;
+  width: 350px;
+  text-align: center;
+  /* display: inline-block; */
+}
+
+.weather-card{
+  border: 1px solid red;
+}
+
+.task-container{
+  background-color: blue;
+  width: 100%;
+  text-align: center;
+
+}
+
+.task-card{
+  border: 1px solid orange;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.task-button-container{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
