@@ -30,6 +30,7 @@ body{
   background-color: green;
   width: 350px;
   text-align: center;
+  height:auto;
   /* display: inline-block; */
 }
 
