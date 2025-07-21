@@ -6,39 +6,42 @@ function Weather(){
 
     const [city, setCity] = useState("");
     const [weatherData, setWeatherData] = useState(null);
+    const savedCity = localStorage.getItem('savedCity');
 
-    useEffect(()=> {
-        const savedCity = localStorage.getItem('savedCity');
-        if (savedCity){
-            setCity(savedCity);
-            
-
-        }
-
-    })
-
+    
     async function handleSubmit(e){
         e.preventDefault();
         // city ? getWeatherData(city) : displayError("please enter a city yo");
         if (city){
-            try{
-                const apiURL= `https://api.weatherstack.com/current?access_key=${apiKey}&query=${city}&units=f`; 
-                const response = await fetch(apiURL);
-                const data = await response.json(); 
-
-                setWeatherData(data)
-                localStorage.setItem("savedCity", city) 
-            }
-            catch(error){
-                console.log(error);
-                displayError(error)
-            }
+            fetchWeather(city)
         }else{
             displayError("please enter a city yo");
         }
     };
     
+    async function fetchWeather(city){
+        try{
+            const apiURL= `https://api.weatherstack.com/current?access_key=${apiKey}&query=${city}&units=f`; 
+            const response = await fetch(apiURL);
+            const data = await response.json(); 
+            
+            setWeatherData(data)
+            localStorage.setItem("savedCity", city);
+        }
+        catch(error){
+            console.log(error);
+            displayError(error)
+        }
+    }
+    // useEffect(()=> {
+    //     if (savedCity){
+    //         setCity(savedCity);
+    //         fetchWeather(savedCity);
 
+    //     }
+
+    // }, [])
+    
     console.log(weatherData)
 
     return(
@@ -49,9 +52,9 @@ function Weather(){
             {weatherData && 
                 <div className="weather-card">
                     <h3>{weatherData.location.name}, {weatherData.location.region}</h3>
-                    <p>{weatherData.current.temperature}</p>
-                    <p>{weatherData.current.humidity}</p>
-                    <p>{weatherData.current.weather_descriptions[0]}</p>
+                    <p>{weatherData.current.temperature}°F</p>
+                    <p>{weatherData.current.humidity}% Humidity</p>
+                    <p>"{weatherData.current.weather_descriptions[0]}"</p>
                 </div>
             }
         </div>

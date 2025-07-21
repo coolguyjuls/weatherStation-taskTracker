@@ -27,30 +27,66 @@ body{
 
 
 .weather-container{
-  background-color: green;
+  background-color:#1c1c23;
   width: 350px;
   text-align: center;
   height:auto;
+  border-radius: 10px;
+  border: 1px solid rgb(234, 255, 255);
+  padding-bottom: 0;
   /* display: inline-block; */
+  height: 40px;
+}
+.weather-container input{
+  margin-top: 10px;
+  border-style: none;
+  /* border: 1px solid white; */
+  width: 90%;
+  background-color: #363636;
+
 }
 
 .weather-card{
   border: 1px solid red;
+  font-family: helvetica;
+  font-weight: 100;
+  margin: 20px 0;
+  border: 1px solid rgb(234, 255, 255);
+  border-radius: 10px;
+  background-color:#1c1c23;
 }
 
 .task-container{
-  background-color: blue;
+  background-color: #1c1c23;
+  border: 1px solid rgb(229, 254, 255);
+  border-radius: 10px;
   width: 100%;
   text-align: center;
 
 }
+.task-container input{
+  margin-bottom: 10px;
+  /* border-style: none; */
+  /* border-radius: 5px; */
+}
 
+.input-button{
+  margin-left: 10px;
+}
 .task-card{
-  border: 1px solid orange;
+  border: 1px solid rgb(227, 255, 252);
+  background-color: #212020;
+  border-radius: 5px;
+  padding: 10px;
   text-align: left;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.task-card:hover{
+  background-color: #363636;
+  /* color: hsl(34, 97%, 77%); */
 }
 .task-button-container{
   display: flex;

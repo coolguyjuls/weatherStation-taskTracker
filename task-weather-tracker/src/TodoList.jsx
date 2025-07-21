@@ -26,7 +26,7 @@ function TodoList(){
         
     }
 
-    console.log(tasks)
+    // console.log(tasks)
     return(
         <div className="task-container">
             <h2>To-Do List</h2>
@@ -40,8 +40,8 @@ function TodoList(){
                     <p>{task}</p>
                     <div className="task-button-container">
                         <button onClick={()=> handleDelete(index)} >Delete</button>
-                        <button>Edit</button>
-                        <p>this index is {index}</p>
+                        {/* <button>Edit</button> */}
+                        {/* <p>this index is {index}</p> */}
                     </div>
                 </div>)}
         </div>
